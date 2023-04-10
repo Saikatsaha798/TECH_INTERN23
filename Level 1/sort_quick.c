@@ -21,6 +21,7 @@ int quick(int arr[], int l, int r){
                 arr[j] = arr[i];
                 arr[i] = temp;
             }
+        }   
             
         temp = arr[i];
         arr[i] = arr[p];
@@ -28,18 +29,43 @@ int quick(int arr[], int l, int r){
 
         quick(arr, l, i-1);
         quick(arr, i+1, r);
-    }
+        
 
     return 0;
+    }
 }
 
 int main(){
-    int arr[5] = {1,2,4,2,3}, i;
+    int n,i;
 
-    quick(arr, 0, 4);
+    printf("Enter the Number of Elements : ");
+    scanf("%d", &n);
 
-    for (i=0; i<5; i++){
-        printf("%d\t", arr[i]);
+    int arr[n];
+
+    printf("Enter the Elements : ");
+    for (i=0; i<n; i++){
+        scanf("%d", &arr[i]);
     }
 
+    printf("Array before sorting : ");
+    for (i=0; i<n; i++){
+        if (i == n-1){
+            printf("%d", arr[i]);
+            break;
+        }
+        printf("%d, ", arr[i]);
+    }
+
+    quick(arr, 0, n-1);
+
+    printf("\nArray after sorting : ");
+    for (i=0; i<n; i++){
+        if (i == n-1){
+            printf("%d", arr[i]);
+            break;
+        }
+        printf("%d, ", arr[i]);
+    }
+    return 0;
 }
